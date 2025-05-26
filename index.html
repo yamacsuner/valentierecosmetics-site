@@ -4,57 +4,60 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Valentière Cosmetics</title>
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 text-gray-800">
-
   <!-- Header -->
   <header class="bg-white shadow-md">
     <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
       <a href="index.html" class="text-2xl font-bold">Valentière Cosmetics</a>
       <nav class="space-x-6">
-        <a href="index.html" class="hover:text-pink-500">Home</a>
+        <a href="index.html" class="text-pink-500 font-semibold">Home</a>
         <a href="shop.html" class="hover:text-pink-500">Shop</a>
         <a href="about.html" class="hover:text-pink-500">About</a>
         <a href="contact.html" class="hover:text-pink-500">Contact</a>
       </nav>
       <div>
-        <button class="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600">Cart (0)</button>
+        <a href="cart.html" class="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600">
+          Cart (<span id="cart-count">0</span>)
+        </a>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="relative bg-cover bg-center h-screen" style="background-image: url('https://source.unsplash.com/featured/?cosmetics,beauty');">
-    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-    <div class="relative z-10 max-w-4xl mx-auto text-center text-white py-32">
-      <h1 class="text-5xl font-extrabold mb-4">Welcome to Valentière Cosmetics</h1>
-      <p class="mb-8 text-lg">Experience clean beauty with Parisian elegance and premium essentials.</p>
-      <a href="shop.html" class="bg-pink-500 px-6 py-3 rounded-full text-lg font-semibold hover:bg-pink-600">Shop Now</a>
-    </div>
+  <!-- Hero Banner -->
+  <section class="bg-pink-100 text-center py-20">
+    <h1 class="text-5xl font-bold mb-4">Clean Beauty. Timeless Confidence.</h1>
+    <p class="text-lg max-w-2xl mx-auto mb-6">Discover handpicked beauty products that are kind to your skin and the planet. From glowing skin to bold lips—we’ve got you covered.</p>
+    <a href="shop.html" class="bg-pink-500 text-white px-8 py-3 rounded text-lg hover:bg-pink-600">Shop Now</a>
   </section>
 
   <!-- Featured Products -->
-  <section id="products" class="py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-8">Our Best Sellers</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <!-- Product Card -->
-        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-          <img src="https://m.media-amazon.com/images/I/71p+G0-JQTL._AC_SL1500_.jpg" alt="Cetaphil Gentle Skin Cleanser" class="w-full h-48 object-cover">
-          <div class="p-4">
-            <h3 class="font-semibold mb-2">Cetaphil Gentle Skin Cleanser</h3>
-            <p class="text-pink-500 font-bold mb-4">THB 450</p>
-            <a href="https://www.amazon.com/dp/B07GC74LL5" target="_blank" rel="noopener" class="block text-center bg-yellow-500 text-black py-2 rounded hover:bg-yellow-600">Buy on Amazon</a>
-          </div>
-        </div>
-        <!-- Add more products as needed -->
+  <section class="py-16 px-4 max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-10">Featured Favorites</h2>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div class="bg-white p-4 rounded shadow">
+        <img src="https://m.media-amazon.com/images/I/61fj2bCFxbL._AC_SL1500_.jpg" alt="Product 1" class="w-full h-64 object-cover mb-4 rounded">
+        <h3 class="text-lg font-semibold mb-2">Hydrating Lip Balm</h3>
+        <p class="text-sm text-gray-600 mb-4">Nourish your lips with this all-natural formula.</p>
+        <a href="product1.html" class="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600">View Product</a>
+      </div>
+      <div class="bg-white p-4 rounded shadow">
+        <img src="https://m.media-amazon.com/images/I/71rZMykY3ZL._AC_SL1500_.jpg" alt="Product 2" class="w-full h-64 object-cover mb-4 rounded">
+        <h3 class="text-lg font-semibold mb-2">Vitamin C Serum</h3>
+        <p class="text-sm text-gray-600 mb-4">Brighten your skin with this daily serum.</p>
+        <a href="product2.html" class="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600">View Product</a>
+      </div>
+      <div class="bg-white p-4 rounded shadow">
+        <img src="https://m.media-amazon.com/images/I/61fVJavQvmL._AC_SL1500_.jpg" alt="Product 3" class="w-full h-64 object-cover mb-4 rounded">
+        <h3 class="text-lg font-semibold mb-2">Organic Face Cleanser</h3>
+        <p class="text-sm text-gray-600 mb-4">Gentle and effective for all skin types.</p>
+        <a href="product3.html" class="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600">View Product</a>
       </div>
     </div>
   </section>
 
-  <!-- Newsletter Signup -->
+  <!-- Newsletter -->
   <section class="bg-pink-50 py-12">
     <div class="max-w-3xl mx-auto text-center px-4">
       <h2 class="text-2xl font-bold mb-4">Join the Valentière Club</h2>
@@ -83,11 +86,10 @@
         </ul>
       </div>
       <div>
-        <h4 class="font-bold mb-4">Contact Us</h4>
-        <p class="text-sm">For inquiries: <a href="mailto:info@valentierecosmetics.com" class="text-pink-500 hover:underline">info@valentierecosmetics.com</a></p>
+        <h4 class="font-bold mb-4">Clean Beauty</h4>
+        <p class="text-sm">We curate products free from harmful ingredients, never tested on animals, and always in style.</p>
       </div>
     </div>
   </footer>
-
 </body>
 </html>
