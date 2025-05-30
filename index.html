@@ -4,100 +4,136 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Valentière Cosmetics</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: #fff;
+    }
+    .container {
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .product {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 16px;
+      margin: 16px 0;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .product img {
+      max-width: 150px;
+      border-radius: 8px;
+    }
+    .product-info {
+      flex-grow: 1;
+    }
+    .btn {
+      background-color: #000;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #444;
+    }
+    .cart {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #eee;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body>
+  <div class="container">
+    <h1>Valentière Cosmetics</h1>
 
-  <!-- Header -->
-  <header class="bg-white shadow-md">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-      <a href="index.html" class="text-2xl font-bold">Valentière Cosmetics</a>
-      <nav class="space-x-6">
-        <a href="index.html" class="text-pink-500 font-semibold">Home</a>
-        <a href="shop.html" class="hover:text-pink-500">Shop</a>
-        <a href="about.html" class="hover:text-pink-500">About</a>
-        <a href="contact.html" class="hover:text-pink-500">Contact</a>
-      </nav>
-      <div>
-        <a href="cart.html" class="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600">
-          Cart (<span id="cart-count">0</span>)
-        </a>
+    <!-- CART ICON -->
+    <div class="cart">
+      🛒 Cart: <span id="cart-count">0</span> items
+      <button class="btn" onclick="checkout()">Checkout</button>
+    </div>
+
+    <!-- PRODUCTS -->
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/71K+RUvjzXL._AC_SX679_.jpg" alt="Medicube Zero Pore Pads">
+      <div class="product-info">
+        <h3>Medicube Zero Pore Pads</h3>
+        <p>Dual-textured toner pads to exfoliate and tighten pores.</p>
+        <button class="btn" onclick="addToCart('Medicube Zero Pore Pads')">Add to Cart</button>
       </div>
     </div>
-  </header>
 
-  <!-- Hero Section -->
-  <section class="bg-pink-100 text-center py-20 px-4">
-    <h1 class="text-5xl font-bold mb-4">Reveal Your Radiance</h1>
-    <p class="text-xl max-w-2xl mx-auto">Explore clean, curated beauty products chosen for skin wellness, elegance, and results.</p>
-    <a href="shop.html" class="mt-6 inline-block bg-pink-500 text-white px-6 py-3 rounded hover:bg-pink-600">Shop Now</a>
-  </section>
-
-  <!-- Featured Products -->
-  <section class="py-16 px-4 max-w-6xl mx-auto">
-    <h2 class="text-3xl font-bold mb-8 text-center">Featured Products</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-      <a href="https://www.amazon.com/Medicube-Zero-Pore-Pads-Dual-Textured/dp/B09V7Z4TJG" target="_blank" class="bg-white p-4 shadow hover:shadow-lg rounded">
-        <img src="https://m.media-amazon.com/images/I/61FhIY+QqZL._AC_SL1500_.jpg" alt="Medicube Zero Pore Pads" class="mb-4 rounded" />
-        <h3 class="font-semibold text-lg">Medicube Zero Pore Pads</h3>
-        <p class="text-sm text-gray-600">Dual-textured pads for pore tightening and exfoliation.</p>
-      </a>
-      <a href="https://www.amazon.com/Medicube-Collagen-Wrapping-Elasticity-Hydration/dp/B0BRMYHMS5" target="_blank" class="bg-white p-4 shadow hover:shadow-lg rounded">
-        <img src="https://m.media-amazon.com/images/I/61qgfzApNYL._SL1500_.jpg" alt="Medicube Collagen Wrapping Mask" class="mb-4 rounded" />
-        <h3 class="font-semibold text-lg">Medicube Collagen Mask</h3>
-        <p class="text-sm text-gray-600">Hydrating and firming mask infused with collagen.</p>
-      </a>
-      <a href="https://www.amazon.com/Under-Eye-Patches-Gold-24-Pairs/dp/B014E2D6BY" target="_blank" class="bg-white p-4 shadow hover:shadow-lg rounded">
-        <img src="https://m.media-amazon.com/images/I/71YoCPan9zL._SL1500_.jpg" alt="Gold Under Eye Patches" class="mb-4 rounded" />
-        <h3 class="font-semibold text-lg">Gold Under Eye Patches</h3>
-        <p class="text-sm text-gray-600">Revitalizing and soothing gold-infused eye masks.</p>
-      </a>
-      <a href="https://www.amazon.com/dalba-Piedmont-Light-weight-Moisturizer-Comedogenic/dp/B0BFQ9RD5B" target="_blank" class="bg-white p-4 shadow hover:shadow-lg rounded">
-        <img src="https://m.media-amazon.com/images/I/71POwrSmLwL._SL1500_.jpg" alt="D'Alba White Truffle Cream" class="mb-4 rounded" />
-        <h3 class="font-semibold text-lg">D'Alba White Truffle Cream</h3>
-        <p class="text-sm text-gray-600">Lightweight moisturizer for hydration and elasticity.</p>
-      </a>
-    </div>
-  </section>
-
-  <!-- Newsletter Signup -->
-  <section class="bg-pink-50 py-12">
-    <div class="max-w-3xl mx-auto text-center px-4">
-      <h2 class="text-2xl font-bold mb-4">Join the Valentière Club</h2>
-      <p class="mb-6">Subscribe for exclusive drops, beauty tips, and 10% off your first order.</p>
-      <form class="flex flex-col sm:flex-row justify-center">
-        <input type="email" placeholder="Enter your email" class="w-full sm:w-auto px-4 py-3 rounded-l border border-pink-200 focus:outline-none" />
-        <button class="mt-2 sm:mt-0 sm:ml-2 bg-pink-500 text-white px-6 py-3 rounded hover:bg-pink-600">Subscribe</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-white border-t mt-12">
-    <div class="max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div>
-        <h4 class="font-bold mb-4">Valentière Cosmetics</h4>
-        <p class="text-sm">© 2025 Valentière Cosmetics. All rights reserved.</p>
-      </div>
-      <div>
-        <h4 class="font-bold mb-4">Quick Links</h4>
-        <ul class="space-y-2 text-sm">
-          <li><a href="index.html" class="hover:text-pink-500">Home</a></li>
-          <li><a href="shop.html" class="hover:text-pink-500">Shop</a></li>
-          <li><a href="about.html" class="hover:text-pink-500">About</a></li>
-          <li><a href="contact.html" class="hover:text-pink-500">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-bold mb-4">Follow Us</h4>
-        <ul class="space-y-2 text-sm">
-          <li><a href="#" class="hover:text-pink-500">Instagram</a></li>
-          <li><a href="#" class="hover:text-pink-500">TikTok</a></li>
-          <li><a href="#" class="hover:text-pink-500">YouTube</a></li>
-        </ul>
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/61YzowOXp+L._AC_SX679_.jpg" alt="Medicube Collagen Wrapping">
+      <div class="product-info">
+        <h3>Medicube Collagen Wrapping Mask</h3>
+        <p>Boosts elasticity and deep hydration for your skin.</p>
+        <button class="btn" onclick="addToCart('Medicube Collagen Wrapping Mask')">Add to Cart</button>
       </div>
     </div>
-  </footer>
 
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/91+OYSt4vCL._AC_SX679_.jpg" alt="Gold Eye Patches">
+      <div class="product-info">
+        <h3>24K Gold Under Eye Patches (24 Pairs)</h3>
+        <p>Revitalizing eye masks to reduce dark circles and puffiness.</p>
+        <button class="btn" onclick="addToCart('Gold Eye Patches')">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/71jH5lqKwCL._AC_SX679_.jpg" alt="d'Alba Moisturizer">
+      <div class="product-info">
+        <h3>d'Alba Piedmont Light-weight Moisturizer</h3>
+        <p>Non-comedogenic, hydrating cream perfect for oily and sensitive skin.</p>
+        <button class="btn" onclick="addToCart('d’Alba Moisturizer')">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>Contact us at: <strong>valentierecosmetics@gmail.com</strong></p>
+      <p>© 2025 Valentière Cosmetics</p>
+    </footer>
+  </div>
+
+  <script>
+    let cartCount = 0;
+    let cartItems = [];
+
+    function addToCart(productName) {
+      cartCount++;
+      cartItems.push(productName);
+      document.getElementById('cart-count').innerText = cartCount;
+      alert(`${productName} added to cart!`);
+    }
+
+    function checkout() {
+      if (cartItems.length === 0) {
+        alert("Your cart is empty.");
+        return;
+      }
+
+      const summary = cartItems.join("\n");
+      alert("Proceeding to checkout with the following items:\n" + summary);
+
+      // In production, redirect to checkout page or Stripe
+    }
+  </script>
 </body>
 </html>
