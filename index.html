@@ -193,12 +193,8 @@
       const summary = cartItems.join("\n");
       alert("Proceeding to checkout with the following items:\n" + summary);
 
-      // Checkout process logic here (e.g. form, email, API, Stripe)
-
-      // Show thank you message
       document.getElementById("thankYouMessage").style.display = "block";
 
-      // Clear cart after checkout
       cartCount = 0;
       cartItems = [];
       document.getElementById('cart-count').innerText = cartCount;
