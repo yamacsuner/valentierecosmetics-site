@@ -94,6 +94,18 @@
       height: 400px;
       border-bottom: 4px solid gold;
     }
+    .thank-you-message {
+      display: none;
+      text-align: center;
+      background: #ffd6e8;
+      padding: 20px;
+      margin: 30px auto;
+      border: 2px solid gold;
+      border-radius: 10px;
+      max-width: 600px;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -152,6 +164,10 @@
     </div>
   </div>
 
+  <div class="thank-you-message" id="thankYouMessage">
+    Thank you for shopping with us at Valentière Cosmetics!
+  </div>
+
   <footer id="contact">
     <p>Contact us at: <strong>valentierecosmetics@gmail.com</strong></p>
     <p>© 2025 Valentière Cosmetics</p>
@@ -178,6 +194,14 @@
       alert("Proceeding to checkout with the following items:\n" + summary);
 
       // Checkout process logic here (e.g. form, email, API, Stripe)
+
+      // Show thank you message
+      document.getElementById("thankYouMessage").style.display = "block";
+
+      // Clear cart after checkout
+      cartCount = 0;
+      cartItems = [];
+      document.getElementById('cart-count').innerText = cartCount;
     }
   </script>
 </body>
